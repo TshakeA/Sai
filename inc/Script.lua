@@ -1834,7 +1834,7 @@ end
             end
         end
 --=====================( D E V )===============
-        if MsgText[1] == "تنظيف المجموعات" or MsgText[1] == "-تنظيف المجموعات-" then
+        if MsgText[1] == "تنظيف المجموعات" or MsgText[1] == "تنظيف المجموعات" then
             local groups = redis:smembers(max..'group:ids')
             local GroupsIsFound = 0
             for i = 1, #groups do
@@ -1859,7 +1859,7 @@ end
             end
             return false
         end
-        if MsgText[1] == "تنظيف المشتركين" or MsgText[1] == "-تنظيف المشتركين-" then
+        if MsgText[1] == "تنظيف المشتركين" or MsgText[1] == "تنظيف المشتركين" then
             local pv = redis:smembers(max..'users')
             local NumPvDel = 0
             for i = 1, #pv do
@@ -1885,7 +1885,7 @@ end
             end
             return false
         end
-        if MsgText[1] == "ضع صوره للترحيب" or MsgText[1]=="-ضع صوره للترحيب-" then
+        if MsgText[1] == "ضع صوره للترحيب" or MsgText[1]=="ضع صوره للترحيب" then
             redis:setex(max..'welcom_ph:witting'..msg.sender_user_id_,300,true)
             return'-› حسناً عزيزي \n- الان قم بارسال الصوره للترحيب .'
         end
@@ -1931,12 +1931,12 @@ Myth: @iiiziiii
         end
     end
 
-    if MsgText[1] == 'المجموعات' or MsgText[1] == "-المجموعات-" then
+    if MsgText[1] == 'المجموعات' or MsgText[1] == "المجموعات" then
         if not msg.SudoUser then return "-› هذا الامر يخص \n- ( Dev ) فقط  ." end
         return '- عدد المجموعات المفعلة ➞ `'..redis:scard(max..'group:ids')..'`  .'
     end
 
-    if MsgText[1] == "المشتركين" or MsgText[1] == "-المشتركين-" then
+    if MsgText[1] == "المشتركين" or MsgText[1] == "المشتركين" then
         if not msg.SudoUser then return "-› هذا الامر يخص \n- ( Dev ) فقط  ." end
         return '- عدد المشتركين في البوت: `'..redis:scard(max..'users')..'` .'
     end
@@ -1963,7 +1963,7 @@ Myth: @iiiziiii
         return redis:get(max..":TEXT_SUDO") or '- لا يوجد رد مطور .'
     end
 
-    if MsgText[1] == "اذاعه عام بالتوجيه" or MsgText[1] == "-اذاعه عام بالتوجيه-" then
+    if MsgText[1] == "اذاعه عام بالتوجيه" or MsgText[1] == "اذاعه عام بالتوجيه" then
         if not msg.SudoUser then return"-› هذا الامر يخص \n- الـMyth فقط  ." end
         if not msg.SudoBase and not redis:get(max..'lock_brod') then
             return "- الاذاعه مقفوله من قبل Myth -"
@@ -1972,7 +1972,7 @@ Myth: @iiiziiii
         return "- حسناً الان ارسل التوجيه للاذاعه ."
     end
 
-    if MsgText[1] == "اذاعه عام" or MsgText[1] == "-اذاعه عام-" then
+    if MsgText[1] == "اذاعه عام" or MsgText[1] == "اذاعه عام" then
         if not msg.SudoUser then return"-› هذا الامر يخص \n- الـMyth فقط  ." end
         if not msg.SudoBase and not redis:get(max..'lock_brod') then
             return "-› الاذاعه مقفوله من قبل Myth ."
@@ -1981,7 +1981,7 @@ Myth: @iiiziiii
         return "- حسناً الان ارسل الرسالة للاذاعه عام ."
     end
 
-    if MsgText[1] == "اذاعه خاص" or MsgText[1] == "-اذاعه خاص-" then
+    if MsgText[1] == "اذاعه خاص" or MsgText[1] == "اذاعه خاص" then
         if not msg.SudoUser then return "-› هذا الامر يخص \n- الـMyth فقط  ." end
         if not msg.SudoBase and not redis:get(max..'lock_brod') then
             return "- الاذاعه مقفوله من قبل Myth  ."
@@ -2009,7 +2009,7 @@ Myth: @iiiziiii
         return sudolist(msg)
     end
 
-    if MsgText[1] == "قائمة العام" or MsgText[1]=="-قائمة العام-" then
+    if MsgText[1] == "قائمة العام" or MsgText[1]=="قائمة العام" then
         if not msg.SudoUser then return"-› هذا الامر يخص \n- ( Dev ) فقط  ." end
         return GetListGeneralBanned(msg)
     end
@@ -2362,7 +2362,6 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
 	if not msg.Admin then return "*-*هذا الامر يخص {نائب المدير,المدير,المنشئ,Dev} فقط  \n-" end
 	local texs = [[  ‌‌‏‌‌‏‌‌‌‌‏                                    
 										 ‌‌— قائمة الأوامر ↓
-
 م1 ━ اوامر الأداره
 م2 ━ اوامر المجموعة
 م3 ━ اوامر حماية المجموعة
@@ -2378,7 +2377,7 @@ keyboard.inline_keyboard = {
 {
 {text = '⓸', callback_data="/help4@"..msg.sender_user_id_},
 },
-}
+{
 local msg_id = msg.id_/2097152/0.5
 https.request(ApiToken..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texs).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end

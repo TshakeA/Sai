@@ -484,7 +484,301 @@ end
 
 function tdcli_update_callback(data)
 	local msg = data.message_
+	  elseif Text and Text:match('/help1@(.*)') then
+	  local users = Text:match('/help1@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[ 
+∷ الرفع والتنزيل ∷
+رفع | تنزيل
+━ مدير
+━ نائب مدير
+━ مميز
+∷ اوامر المالك ∷
+━ مسح المدراء
+━ مسح نائبين المدراء
+━ مسح المميزين
+∷ اوامر بالرد أو بالمعرف ∷
+━ التفاعل
+━ كشف
+━ الرتبه
+━ طرد
+━ حظر | الغاء الحظر
+━ تقييد | الغاء التقييد
+━ كتم | الغاء الكتم
+∷ اوامر المنع ∷
+━ منع + الكلمة المراد منعها
+━ الغاء منع + الكلمة المراد الغاء منعها
+━ قائمة المنع
+━━━━━━━━━━━━━━━
+	  ]]
+	  
+	  keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+{
+	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	  elseif Text and Text:match('/help2@(.*)') then
+	  local users = Text:match('/help2@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[
+∷ اوامر الوضع للمجموعة ∷
+━ ضع الترحيب
+━ ضع القوانين
+━ ضع وصف
+━ ضع رابط
+∷ اوامر رؤية الاعدادات ∷
+━ المالكين
+━ المدراء
+━ نائبين المدراء
+━ المكتومين
+━ الحمايه
+━ الوسائط
+━ الاعدادات
+━ المجموعه
+∷ اوامر المجموعة الاخرى ∷
+━ انشاء رابط
+━ تغيير امر + الأمر المطلوب تغييره
+━ مسح امر + الأمر المطلوب تغييره
+━ قائمة الاوامر
+━━━━━━━━━━━━━━━
+	  ]]
+	keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+},
+{
+},
+}
+	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	  elseif Text and Text:match('/help3@(.*)') then
+	  local users = Text:match('/help3@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[ 
+∷ اوامر حماية المجموعة ∷
+قفل | فتح
+━ الكل
+━ التاق
+━ الفيديو
+━ الصور
+━ الملصقات
+━ المتحركه
+━ البصمات
+━ الدردشه
+━ الروابط
+━ البوتات
+━ التعديل
+━ المعرفات
+━ الكلايش
+━ التكرار
+━ الجهات
+━ الانلاين
+━ التوجيه
+━ الدخول بالرابط
+━ البوتات بالطرد
+تفعيل | تعطيل
+━ الردود
+━ التحذير
+━ الترحيب
+━ الايدي
+━ الايدي بالصوره
+━ الرفع
+∷ التقييد ∷
+قفل | فتح
+━ الصور بالتقييد
+━ الروابط بالتقييد
+━ المتحركه بالتقييد
+━ الفيديو بالتقييد
+━ التوجيه بالتقييد
+━━━━━━━━━━━━━━━
+	  ]]
+	  keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+{
 
+}
+	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	  elseif Text and Text:match('/help4@(.*)') then
+	  local users = Text:match('/help4@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[ 
+∷ اوامر حماية المجموعة ∷
+قفل | فتح
+━ الكل
+━ التاق
+━ الفيديو
+━ الصور
+━ الملصقات
+━ المتحركه
+━ البصمات
+━ الدردشه
+━ الروابط
+━ البوتات
+━ التعديل
+━ المعرفات
+━ الكلايش
+━ التكرار
+━ الجهات
+━ الانلاين
+━ التوجيه
+━ الدخول بالرابط
+━ البوتات بالطرد
+تفعيل | تعطيل
+━ الردود
+━ التحذير
+━ الترحيب
+━ الايدي
+━ الايدي بالصوره
+━ الرفع
+∷ التقييد ∷
+قفل | فتح
+━ الصور بالتقييد
+━ الروابط بالتقييد
+━ المتحركه بالتقييد
+━ الفيديو بالتقييد
+━ التوجيه بالتقييد
+━━━━━━━━━━━━━━━
+d.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+{
+	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	  elseif Text and Text:match('/help4@(.*)') then
+	  local users = Text:match('/help4@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[ 
+تفعيل ◢◤ تعطيل
+✥ اليوتيوب
+✥ الكت تويت
+✥ الالعاب
+
+✎﹏﹏﹏﹏
+للاستفسار الرجاء مراسلة بيسو في الخاص
+rd = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+
+}
+	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	  elseif Text and Text:match('/help6@(.*)') then
+	  local users = Text:match('/help6@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[ 
+	┄─┅══┅─┄     
+👨‍💻↫ آوآمر آلتعطيل و آلتفعيل
+┄─┅═ـ═┅─┄
+👥╿تفعيل «» تعطيل  ❬ الرفــع ❭
+🗣│تفعيل «» تعطيل  ❬ الردود ❭
+🕹│تفعيل «» تعطيل  ❬الالعـاب❭
+📢│تفعيل «» تعطيل  ❬ التحذير ❭
+👋│تفعيل «» تعطيل  ❬ الترحيب ❭
+🆔│تفعيل «» تعطيل  ❬ الايدي ❭
+🌅╽تفعيل «» تعطيل  ❬ الايدي بالصوره ❭
+┄─┅═ـ═┅─┄
+	  ]]
+	  keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_}
+{
+	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	  elseif Text and Text:match('/help7@(.*)') then
+	  local users = Text:match('/help7@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[ 
+	┄─┅══┅─┄
+👨‍💻↫ آوآمر ❬ اوامر الوضع للمجموعه ❭
+┄─┅═ـ═┅─┄
+🔗╿ضع رابـط «» لوضع ❬ رابط ❭
+💳│ضع اســـم «» لوضع ❬ اســم ❭
+🏞│ضع صوره «» لوضع ❬ صوره ❭
+📡│ضع وصـف «» لوضع ❬ وصف ❭ 
+🧾│ضع القوانيــن «» لوضع ❬ القوانين ❭ 
+👋│ضع الترحيب «» لوضع ❬ ترحيــب ❭
+💫╽ضع تكرار + العدد «» لوضع ❬ تكرار ❭
+┄─┅═ـ═┅─┄
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_}
+},
+{
+return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	  elseif Text and Text:match('/help@(.*)') then
+	  local users = Text:match('/help@(.*)')
+	  if tonumber(users) == tonumber(data.sender_user_id_) then
+	  local Teext = [[	‌‌‏‌‌‏‌‌‌‌‏                                    
+										— قائمة الأوامر ↓
+
+م1 ━ اوامر الأداره
+م2 ━ اوامر المجموعة
+م3 ━ اوامر حماية المجموعة
+م4 ━ الاوامر العامة
+م M ━ اوامر Myth
+سورس ━ معلومات سورس البوت
+eyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+{
+	  
+	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+	else
+	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+	end
+	end
+	  end
+		  local
 	if data.ID == "UpdateMessageSendFailed" then
     if msg.sender_user_id_ then
 	redis:srem(max..'users',msg.sender_user_id_)

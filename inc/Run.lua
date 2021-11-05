@@ -694,21 +694,7 @@ keyboard.inline_keyboard = {
 	else
 	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
 	end
-	  elseif Text and Text:match('/help6@(.*)') then
-	  local users = Text:match('/help6@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	┄─┅══┅─┄     
-👨‍💻↫ آوآمر آلتعطيل و آلتفعيل
-┄─┅═ـ═┅─┄
-👥╿تفعيل «» تعطيل  ❬ الرفــع ❭
-🗣│تفعيل «» تعطيل  ❬ الردود ❭
-🕹│تفعيل «» تعطيل  ❬الالعـاب❭
-📢│تفعيل «» تعطيل  ❬ التحذير ❭
-👋│تفعيل «» تعطيل  ❬ الترحيب ❭
-🆔│تفعيل «» تعطيل  ❬ الايدي ❭
-🌅╽تفعيل «» تعطيل  ❬ الايدي بالصوره ❭
-┄─┅═ـ═┅─┄
+
 	  ]]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
@@ -722,34 +708,7 @@ keyboard.inline_keyboard = {
 	else
 	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
 	end
-	  elseif Text and Text:match('/help7@(.*)') then
-	  local users = Text:match('/help7@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	┄─┅══┅─┄
-👨‍💻↫ آوآمر ❬ اوامر الوضع للمجموعه ❭
-┄─┅═ـ═┅─┄
-🔗╿ضع رابـط «» لوضع ❬ رابط ❭
-💳│ضع اســـم «» لوضع ❬ اســم ❭
-🏞│ضع صوره «» لوضع ❬ صوره ❭
-📡│ضع وصـف «» لوضع ❬ وصف ❭ 
-🧾│ضع القوانيــن «» لوضع ❬ القوانين ❭ 
-👋│ضع الترحيب «» لوضع ❬ ترحيــب ❭
-💫╽ضع تكرار + العدد «» لوضع ❬ تكرار ❭
-┄─┅═ـ═┅─┄
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
-},
-{
-{text = '⓸', callback_data="/help4@"..data.sender_user_id_}
-},
-{
-return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
+(data.id_,'قائمة الاوامر ليست لك', true)
 	end
 	  elseif Text and Text:match('/help@(.*)') then
 	  local users = Text:match('/help@(.*)')

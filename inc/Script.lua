@@ -2359,7 +2359,7 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
 
     if msg.type == 'channel' and msg.GroupActive then
 	if MsgText[1] == "الاوامر" then
-	if not msg.Admin then return "*-*هذا الامر يخص {نائب المدير,المدير,المنشئ,Dev} فقط  \n-" end
+	if not msg.Admin then return "*•*هذا الامر يخص {نائب المدير,المدير,المنشئ,Dev} فقط  \n-" end
 	local texs = [[  ‌‌‏‌‌‏‌‌‌‌‏                                    
 										 ‌‌— قائمة الأوامر ↓
 م1 ━ اوامر الأداره
@@ -2368,14 +2368,14 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
 م4 ━ الاوامر العامة
 م M ━ اوامر Myth
 سورس ━ معلومات سورس  
-	 ]]
-	 keyboard = {} 
+ ]]
+ keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1@"..msg.sender_user_id_},{text = '⓶', callback_data="/help2@"..msg.sender_user_id_},{text = '⓷', callback_data="/help3@"..msg.sender_user_id_},
+{text = 'م1', callback_data="/help1@"..msg.sender_user_id_},{text = 'م2', callback_data="/help2@"..msg.sender_user_id_},{text = 'م3', callback_data="/help3@"..msg.sender_user_id_},
 },
 {
-{text = '⓸', callback_data="/help4@"..msg.sender_user_id_},
+{text = 'م4', callback_data="/help4@"..msg.sender_user_id_},
 },
 {
 local msg_id = msg.id_/2097152/0.5
@@ -2511,7 +2511,6 @@ end
 ✥ مسح الردود
 ✥ مسح الردود المطورة
 
-✎﹏﹏﹏﹏
 للاستفسار الرجاء مراسلة المطور في الخاص ]]
             sendMsg(msg.chat_id_,msg.id_,text)
             return false
@@ -2526,9 +2525,6 @@ end
 
 ✎﹏﹏﹏﹏
 للاستفسار الرجاء مراسلة المطور في الخاص
-
-
-
  ]]
             sendMsg(msg.chat_id_,msg.id_,text)
             return false

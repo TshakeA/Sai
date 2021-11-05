@@ -2358,6 +2358,30 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
 
 
     if msg.type == 'channel' and msg.GroupActive then
+	if MsgText[1] == "الاوامر" then
+	if not msg.Admin then return "*-*هذا الامر يخص {نائب المدير,المدير,المنشئ,Dev} فقط  \n-" end
+	local texs = [[  ‌‌‏‌‌‏‌‌‌‌‏                                    
+										 ‌‌— قائمة الأوامر ↓
+
+م1 ━ اوامر الأداره
+م2 ━ اوامر المجموعة
+م3 ━ اوامر حماية المجموعة
+م4 ━ الاوامر العامة
+م M ━ اوامر Myth
+سورس ━ معلومات سورس  
+	 ]]
+	 keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⓵', callback_data="/help1@"..msg.sender_user_id_},{text = '⓶', callback_data="/help2@"..msg.sender_user_id_},{text = '⓷', callback_data="/help3@"..msg.sender_user_id_},
+},
+{
+{text = '⓸', callback_data="/help4@"..msg.sender_user_id_},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request(ApiToken..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texs).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
         if MsgText[1]== 'م1' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
             local text =[[

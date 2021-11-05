@@ -2359,31 +2359,25 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
 
     if msg.type == 'channel' and msg.GroupActive then
 	if MsgText[1] == "الاوامر" then
-	if not msg.Admin then return "*•*هذا الامر يخص {نائب المدير,المدير,المنشئ,Dev} فقط  \n-" end
-	local texs = [[  ‌‌‏‌‌‏‌‌‌‌‏                                    
-										 ‌‌— قائمة الأوامر ↓
+
+if not msg.Admin then return "هذا الامر يخص ( مساعد المدير ) فقط ." end
+
+return [[
+‌‌‏‌‌‏‌‌‌‌‏                                    
+           ‌‌— قائمة الأوامر ↓
 م1 ━ اوامر الأداره
 م2 ━ اوامر المجموعة
 م3 ━ اوامر حماية المجموعة
 م4 ━ الاوامر العامة
 م M ━ اوامر Myth
-سورس ━ معلومات سورس  
- ]]
- keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'م1', callback_data="/help1@"..msg.sender_user_id_},{text = 'م2', callback_data="/help2@"..msg.sender_user_id_},{text = 'م3', callback_data="/help3@"..msg.sender_user_id_},
-},
-{
-{text = 'م4', callback_data="/help4@"..msg.sender_user_id_},
-},
-{
-local msg_id = msg.id_/2097152/0.5
-https.request(ApiToken..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texs).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+سورس ━ معلومات سورس
+
+ ‌‌‏اذا تبي شي كلمني هنا { ]]..SUDO_USER..[[ } ✅ ]]
+
 end
         if MsgText[1]== 'م1' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
-            local text =[[
+            local MarkDown =[[1) اوامر : الرفع و التنزيل
 ↜ الرفع والتنزيل ↝
 رفع ◢◤ تنزيل
 ✥ مشرف
@@ -2418,7 +2412,7 @@ end
         end
         if MsgText[1]== 'م2' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
-            local text = [[
+            local MarkDown = [[
 ↜ اوامر الوضع للمجموعة ↝
 ✥ ضع الترحيب
 ✥ ضع القوانين
@@ -2445,7 +2439,7 @@ end
         end
         if MsgText[1]== 'م3' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
-            local text = [[
+            local MarkDown = [[
 ↜ اوامر حماية المجموعة ↝
 قفل ◢◤ فتح
 ✥ الكل
@@ -2529,7 +2523,31 @@ end
             sendMsg(msg.chat_id_,msg.id_,text)
             return false
         end
-
+if MsgText[1]== "م M" then
+if not msg.SudoBase then return "للمطور الاساسي فقط ." end
+local text = [[
+━━━━━━━
+اوامر Mester
+━━━━━━━
+- تفعيل
+- تعطيل
+- اسم بوتك + غادر
+- رفع منشى
+━━━━━━━
+- اذاعه
+- اذاعه خاص
+- اذاعه عام
+- اذاعه عام بالتوجيه
+- تنظيف المجموعات
+- تنظيف المشتركين
+━━━━━━━
+- تحديث
+- تحديث السورس
+━━━━━━━
+اذا تبي شي كلمني هنا ]]..SUDO_USER
+sendMsg(msg.chat_id_,msg.id_,text)
+return false
+end
         if MsgText[1] == "تفعيل" and MsgText[2] == "اطردني"  then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
             if not redis:get(max..'lave_me'..msg.chat_id_) then

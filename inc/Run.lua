@@ -484,6 +484,7 @@ end
 
 function tdcli_update_callback(data)
 	local msg = data.message_
+
 	  elseif Text and Text:match('/help1@(.*)') then
 	  local users = Text:match('/help1@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
@@ -515,10 +516,10 @@ function tdcli_update_callback(data)
 	  keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+{text = 'م1', callback_data="/help1@"..data.sender_user_id_},{text = 'م2', callback_data="/help2@"..data.sender_user_id_},{text = 'م3', callback_data="/help3@"..data.sender_user_id_},
 },
 {
-{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+{text = 'م4', callback_data="/help4@"..data.sender_user_id_},
 {
 	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 	else
@@ -670,8 +671,8 @@ d.inline_keyboard = {
 	else
 	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
 	end
-	  elseif Text and Text:match('/help4@(.*)') then
-	  local users = Text:match('/help4@(.*)')
+	  elseif Text and Text:match('/help5@(.*)') then
+	  local users = Text:match('/help5@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[ 
 تفعيل ◢◤ تعطيل
@@ -725,10 +726,10 @@ keyboard.inline_keyboard = {
 eyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+{text = 'م1', callback_data="/help1@"..data.sender_user_id_},{text = 'م2', callback_data="/help2@"..data.sender_user_id_},{text = 'م3', callback_data="/help3@"..data.sender_user_id_},
 },
 {
-{text = '⓸', callback_data="/help4@"..data.sender_user_id_},
+{text = 'م4', callback_data="/help4@"..data.sender_user_id_},
 {
 	  
 	  return https.request(ApiToken..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 

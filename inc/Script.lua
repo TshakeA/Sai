@@ -1445,6 +1445,10 @@ end
         return "-› حسناً عزيزي \n- ارسل رد الترحيب الان\n\n- ملاحظه تستطيع إضافة دوال للترحيب مثلا :\n- اضهار قوانين المجموعه  » *{القوانين}*  \n- اضهار الاسم العضو » *{الاسم}*\n- اضهار المعرف العضو » *{المعرف}*\n- اضهار اسم المجموعه » *{المجموعه}*"
     end
 
+if MsgText[1] == "ضع كليشه المطور" then 
+redis:setex(max..'text_sudo:witting'..msg.sender_user_id_,1200,true) 
+return 'أرحب تفضل عزيزي  \nالان قم بارسال الكليشه \n' 
+end
 
     if MsgText[1] == "الترحيب" then
         if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
@@ -1972,32 +1976,32 @@ Myth: @iiiziiii
         return "- حسناً الان ارسل التوجيه للاذاعه ."
     end
 
-    if MsgText[1] == "اذاعه عام" or MsgText[1] == "اذاعه عام" then
-        if not msg.SudoUser then return"-› هذا الامر يخص \n- الـMyth فقط  ." end
-        if not msg.SudoBase and not redis:get(max..'lock_brod') then
-            return "-› الاذاعه مقفوله من قبل Myth ."
-        end
-        redis:setex(max..'fwd:all'..msg.sender_user_id_,300, true)
-        return "- حسناً الان ارسل الرسالة للاذاعه عام ."
-    end
+    if MsgText[1] == "اذاعه عام" or MsgText[1] == "اذاعه عام " then		
+if not msg.SudoUser then return"هذا الامر يخص ( Dev ) فقط ." end
+if not msg.SudoBase and not redis:get(max..'lock_brod') then 
+return "الاذاعه مقفوله من قبل المطور الاساسي ." 
+end
+redis:setex(max..'fwd:all'..msg.sender_user_id_,300, true) 
+return "حسننا الان ارسل الكليشه للاذاعه عام ." 
+end
 
-    if MsgText[1] == "اذاعه خاص" or MsgText[1] == "اذاعه خاص" then
-        if not msg.SudoUser then return "-› هذا الامر يخص \n- الـMyth فقط  ." end
-        if not msg.SudoBase and not redis:get(max..'lock_brod') then
-            return "- الاذاعه مقفوله من قبل Myth  ."
-        end
-        redis:setex(max..'fwd:pv'..msg.sender_user_id_,300, true)
-        return "- حسناً الان ارسل الرسالة للاذاعه خاص ."
-    end
+    if MsgText[1] == "اذاعه خاص" or MsgText[1] == "اذاعه خاص " then		
+if not msg.SudoUser then return "هذا الامر يخص ( Dev ) فقط ." end
+if not msg.SudoBase and not redis:get(max..'lock_brod') then 
+return "الاذاعه مقفوله من قبل Mester  ." 
+end
+redis:setex(max..'fwd:pv'..msg.sender_user_id_,300, true) 
+return "حسننا الان ارسل الكليشه للاذاعه خاص ."
+end
 
-    if MsgText[1] == "اذاعه" or MsgText[1] == "اذاعه" then
-        if not msg.SudoUser then return"-› هذا الامر يخص \n- الـMyth فقط  ." end
-        if not msg.SudoBase and not redis:get(max..'lock_brod') then
-            return "- الاذاعه مقفوله من قبل Myth ."
-        end
-        redis:setex(max..'fwd:groups'..msg.sender_user_id_,300, true)
-        return "- حسناً الان ارسل الرسالة للاذاعه للمجموعات ."
-    end
+    if MsgText[1] == "اذاعه" or MsgText[1] == "اذاعه " then		
+if not msg.SudoUser then return"هذا الامر يخص ( المطور ) فقط ." end
+if not msg.SudoBase and not redis:get(max..'lock_brod') then 
+return "الاذاعه مقفوله من قبل المطور الاساسي ." 
+end
+redis:setex(max..'fwd:groups'..msg.sender_user_id_,300, true) 
+return "حسننا الان ارسل الكليشه للاذاعه للمجموعات ." 
+end
 
     if MsgText[1] == "قائمة DV" or MsgText[1] == "قائمة Dev🎖" then
         if not msg.SudoUser then return"-› هذا الامر يخص \n- ( Dev ) فقط  ." end

@@ -99,7 +99,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close()
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "- اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n- شكرا لاستخدامك سورس فوري \n- أرســل  الان /start\n- لإظهار الاوامر للمطور المجهزه بالكيبورد\n\n"
+local Text = "- اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n- شكرا لاستخدامك سورس ناشي \n- أرســل  الان /start\n- لإظهار الاوامر للمطور المجهزه بالكيبورد\n\n"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 os.execute([[
 rm -f ./README.md
@@ -353,10 +353,12 @@ end
 if msg.content_.members_[0].id_ == our_id and redis:get(max..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(max..'username:'..SUDO_ID).username
 sendPhoto(msg.chat_id_,msg.id_,redis:get(max..':WELCOME_BOT'),[[ اهلاً
-أنا بوت Fory لإدارة المجموعات
--  يوتيوب, كت تويت, إستجابة سريعه والمزيد ..
-- ارفع البوت مشرف بالقروب ثم اكتب كلمة تفعيل .
-قناة أخبار وتحديثات Fory @rnnni
+أنا بوت Beso لإدارة المجموعات
+✥  يوتيوب, كت تويت, إستجابة سريعه والمزيد ..
+✥ ارفع البوت مشرف بالقروب ثم اكتب كلمة تفعيل .
+
+
+قناة أخبار وتحديثات بيسو @rnnni
 Myth: @diiivi
 
 ✎﹏﹏﹏﹏
@@ -485,8 +487,6 @@ end
 function tdcli_update_callback(data)
 	local msg = data.message_
 
-
-		  local
 	if data.ID == "UpdateMessageSendFailed" then
     if msg.sender_user_id_ then
 	redis:srem(max..'users',msg.sender_user_id_)
@@ -574,7 +574,7 @@ redis:hset(max..'username:'..tonumber(mmd),'username',msg.text)
 	redis:set(max..":SUDO_ID:",msg.text)
 send_msg(msg.chat_id_,"-› تم وضع الايدي ارسل الحين معرف الـMyth.")
 	end
-	if msg.text== 'تحويل ملكية فوري' and msg.sender_user_id_ == SUDO_ID then
+	if msg.text== 'تحويل ملكية بيسو' and msg.sender_user_id_ == SUDO_ID then
     send_msg(msg.chat_id_,"أرسل الأيدي حق الـ Myth الجديد حقي")
 redis:setex('setid'..msg.sender_user_id_,120,true)
 end

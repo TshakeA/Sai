@@ -2364,7 +2364,7 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
     if msg.type == 'channel' and msg.GroupActive then
         if MsgText[1]== 'م1' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
-            local MarkDown =[[1) اوامر : الرفع و التنزيل
+            local text =[[1) اوامر : الرفع و التنزيل
 ↜ الرفع والتنزيل ↝
 رفع ◢◤ تنزيل
 ✥ مشرف
@@ -2399,7 +2399,7 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
         end
         if MsgText[1]== 'م2' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
-            local MarkDown = [[
+            local text = [[
 ↜ اوامر الوضع للمجموعة ↝
 ✥ ضع الترحيب
 ✥ ضع القوانين
@@ -2426,7 +2426,7 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
         end
         if MsgText[1]== 'م3' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
-            local MarkDown = [[
+            local text = [[
 ↜ اوامر حماية المجموعة ↝
 قفل ◢◤ فتح
 ✥ الكل

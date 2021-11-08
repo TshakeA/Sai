@@ -2362,23 +2362,6 @@ echo '*\n*- ( جارِ تنظيف الفديو )\n*»» '"$clyt_mp4"'*'
 
 
     if msg.type == 'channel' and msg.GroupActive then
-	if MsgText[1] == "الاوامر" then
-
-if not msg.Admin then return "هذا الامر يخص ( مساعد المدير ) فقط ." end
-
-return [[
-‌‌‏‌‌‏‌‌‌‌‏                                    
-           ‌‌— قائمة الأوامر ↓
-م1 ━ اوامر الأداره
-م2 ━ اوامر المجموعة
-م3 ━ اوامر حماية المجموعة
-م4 ━ الاوامر العامة
-م M ━ اوامر Myth
-سورس ━ معلومات سورس
-
- ‌‌‏اذا تبي شي كلمني هنا { ]]..SUDO_USER..[[ } ✅ ]]
-
-end
         if MsgText[1]== 'م1' then
             if not msg.Admin then return "-› هذا الامر يخص\n-(نائب المدير, المدير، المالك، Dev) فقط ." end
             local MarkDown =[[1) اوامر : الرفع و التنزيل
